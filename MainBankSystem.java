@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+import exceptions.IllegalArgumentException;
+import exceptions.InsufficientFundsException;
+import modules.Account;
+import modules.BankManager;
+import modules.Customer;
+import modules.SavingsAccount;
+
 public class MainBankSystem {
     public static void main(String[] args) {
         BankManager bankManager = new BankManager();
@@ -58,7 +65,7 @@ public class MainBankSystem {
                     System.out.println("Exiting the Bank Management System. Goodbye!");
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice. Please enter a number between 1 and 8.");
+                    System.out.println("Invalid choice. Please enter a number between 1 and 11.");
             }
         }
     }

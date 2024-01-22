@@ -1,6 +1,11 @@
+package modules;
+
 import java.util.ArrayList;
 
-class BankManager {
+import exceptions.IllegalArgumentException;
+import exceptions.InsufficientFundsException;
+
+public class BankManager {
     private ArrayList<Customer> customers;
     private ArrayList<Account> accounts;
     private TransactionManager transactionManager;

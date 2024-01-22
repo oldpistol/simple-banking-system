@@ -1,4 +1,9 @@
-class Account {
+package modules;
+
+import exceptions.IllegalArgumentException;
+import exceptions.InsufficientFundsException;
+
+public class Account {
     private String accountId;
     private Customer customer;
     private double balance;

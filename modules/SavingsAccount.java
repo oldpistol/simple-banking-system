@@ -1,4 +1,8 @@
-class SavingsAccount extends Account {
+package modules;
+
+import exceptions.IllegalArgumentException;
+
+public class SavingsAccount extends Account {
     private double interestRate;
 
     public SavingsAccount(String accountId, Customer customer, double initialBalance, double interestRate) {
