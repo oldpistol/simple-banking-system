@@ -7,4 +7,8 @@ class DepositTransaction extends Transaction {
         super(transactionId, description, amount);
         this.accountId = accountId;
     }
+
+    public String getAccountId() {
+        return accountId;
+    }
 }
