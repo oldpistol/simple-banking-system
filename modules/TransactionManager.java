@@ -19,11 +19,16 @@ class TransactionManager {
     }
 
     public void displayTransactions() {
-        System.out.println("Transactions in the system:");
+        System.out.println();
+        System.out.println("+-----------------+-------------------------------+-------------+");
+        System.out.println("| Transaction ID  |          Description          |   Amount    |");
+        System.out.println("+-----------------+-------------------------------+-------------+");
         for (Transaction transaction : transactions) {
-            System.out.println("Transaction ID: " + transaction.getTransactionId() +
-                    ", Description: " + transaction.getDescription() +
-                    ", Amount: $" + transaction.getAmount());
+            System.out.printf("| %-15s | %-29s | $%-9.2f |%n",
+                    transaction.getTransactionId(), transaction.getDescription(), transaction.getAmount());
         }
+        System.out.println("+-----------------+-------------------------------+-------------+");
+        System.out.println();
     }
+
 }

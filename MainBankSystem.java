@@ -25,7 +25,7 @@ public class MainBankSystem {
             System.out.println("9. View Accounts");
             System.out.println("10. View Saving Accounts");
             System.out.println("11. Exit");
-
+            System.out.println();
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
@@ -71,6 +71,8 @@ public class MainBankSystem {
     }
 
     private static void createCustomer(BankManager bankManager, Scanner scanner) {
+        System.out.println();
+        System.out.println("==== Create Customer ====");
         System.out.print("Enter customer ID: ");
         String customerId = scanner.nextLine();
         System.out.print("Enter customer name: ");
@@ -84,6 +86,7 @@ public class MainBankSystem {
     }
 
     private static void createAccount(BankManager bankManager, Scanner scanner) {
+        System.out.println();
         System.out.print("Enter customer ID for the account: ");
         String customerId = scanner.nextLine();
         Customer customer = findCustomerById(bankManager, customerId);
@@ -100,6 +103,7 @@ public class MainBankSystem {
     }
 
     private static void createSavingsAccount(BankManager bankManager, Scanner scanner) {
+        System.out.println();
         System.out.print("Enter customer ID for the account: ");
         String customerId = scanner.nextLine();
         Customer customer = findCustomerById(bankManager, customerId);
@@ -118,6 +122,7 @@ public class MainBankSystem {
     }
 
     private static void makeDeposit(BankManager bankManager, Scanner scanner) {
+        System.out.println();
         System.out.print("Enter account ID for the deposit: ");
         String accountId = scanner.nextLine();
         Account account = findAccountById(bankManager, accountId);
@@ -137,6 +142,7 @@ public class MainBankSystem {
     }
 
     private static void makeWithdrawal(BankManager bankManager, Scanner scanner) {
+        System.out.println();
         System.out.print("Enter account ID for the withdrawal: ");
         String accountId = scanner.nextLine();
         Account account = findAccountById(bankManager, accountId);
@@ -156,16 +162,20 @@ public class MainBankSystem {
     }
 
     private static void viewAccountBalances(BankManager bankManager) {
-        System.out.println("==== Account Balances ====");
-        System.out.printf("%-10s %-15s %s%n", "Account ID", "Customer Name", "Balance");
-
+        System.out.println();
+        System.out.println("+------------+-------------------+---------------+");
+        System.out.println("| Account ID |   Customer Name   |    Balance    |");
+        System.out.println("+------------+-------------------+---------------+");
         for (Account account : bankManager.getAccounts()) {
-            System.out.printf("%-10s %-15s $%-10.2f%n",
+            System.out.printf("| %-10s | %-17s | $%-11.2f |%n",
                     account.getAccountId(), account.getCustomer().getName(), account.getBalance());
         }
+        System.out.println("+------------+-------------------+---------------+");
+        System.out.println();
     }
 
     private static void viewTransactions(BankManager bankManager) {
+        System.out.println();
         System.out.println("==== Transactions ====");
         bankManager.displayTransactions();
     }
@@ -189,33 +199,46 @@ public class MainBankSystem {
     }
 
     private static void viewCustomers(BankManager bankManager) {
-        System.out.println("==== Customers ====");
+        System.out.println();
+        System.out.println("+--------------+----------------------+-------------------------------+");
+        System.out.println("| Customer ID  |        Name          |           Address             |");
+        System.out.println("+--------------+----------------------+-------------------------------+");
         for (Customer customer : bankManager.getCustomers()) {
-            System.out.println("Customer ID: " + customer.getCustomerId() +
-                    ", Name: " + customer.getName() +
-                    ", Address: " + customer.getAddress());
+            System.out.println(String.format("| %-12s | %-20s | %-30s |",
+                    customer.getCustomerId(), customer.getName(), customer.getAddress()));
         }
+        System.out.println("+--------------+----------------------+-------------------------------+");
+        System.out.println();
     }
 
     private static void viewAccounts(BankManager bankManager) {
-        System.out.println("==== Accounts ====");
+        System.out.println();
+        System.out.println("+------------+------------------+-------------+");
+        System.out.println("| Account ID |     Customer     |   Balance   |");
+        System.out.println("+------------+------------------+-------------+");
         for (Account account : bankManager.getAccounts()) {
-            System.out.println("Account ID: " + account.getAccountId() +
-                    ", Customer: " + account.getCustomer().getName() +
-                    ", Balance: $" + account.getBalance());
+            System.out.printf("| %-10s | %-16s | $%-9.2f |%n",
+                    account.getAccountId(), account.getCustomer().getName(), account.getBalance());
         }
+        System.out.println("+------------+------------------+-------------+");
+        System.out.println();
     }
 
     private static void viewSavingsAccounts(BankManager bankManager) {
-        System.out.println("==== Savings Accounts ====");
+        System.out.println();
+        System.out.println("+------------+------------------+-------------+-------------------+");
+        System.out.println("| Account ID |     Customer     |   Balance   |  Interest Rate   |");
+        System.out.println("+------------+------------------+-------------+-------------------+");
         for (Account account : bankManager.getAccounts()) {
             if (account instanceof SavingsAccount) {
                 SavingsAccount savingsAccount = (SavingsAccount) account;
-                System.out.println("Account ID: " + savingsAccount.getAccountId() +
-                        ", Customer: " + savingsAccount.getCustomer().getName() +
-                        ", Balance: $" + savingsAccount.getBalance() +
-                        ", Interest Rate: " + savingsAccount.getInterestRate());
+                System.out.printf("| %-10s | %-16s | $%-9.2f | %-17s |%n",
+                        savingsAccount.getAccountId(), savingsAccount.getCustomer().getName(),
+                        savingsAccount.getBalance(), savingsAccount.getInterestRate());
             }
         }
+        System.out.println("+------------+------------------+-------------+-------------------+");
+        System.out.println();
     }
+
 }
