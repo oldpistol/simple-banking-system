@@ -9,10 +9,15 @@ import modules.SavingsAccount;
 
 public class MainBankSystem {
     public static void main(String[] args) {
+
+        // Create a bank manager and a scanner object
         BankManager bankManager = new BankManager();
         Scanner scanner = new Scanner(System.in);
 
+        // Main menu
+        // The main menu allows the user to interact with the bank management system
         while (true) {
+            System.out.println();
             System.out.println("==== Bank Management System ====");
             System.out.println("1. Create Customer");
             System.out.println("2. Create Account");
@@ -30,6 +35,8 @@ public class MainBankSystem {
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
+            // Perform the action based on the user's choice
+            // The user's choice is a number between 1 and 11
             switch (choice) {
                 case 1:
                     createCustomer(bankManager, scanner);
@@ -79,6 +86,7 @@ public class MainBankSystem {
         String name = scanner.nextLine();
         System.out.print("Enter customer address: ");
         String address = scanner.nextLine();
+        System.out.println();
 
         Customer customer = new Customer(customerId, name, address);
         bankManager.addCustomer(customer);

@@ -2,6 +2,9 @@ package modules;
 
 import exceptions.IllegalArgumentException;
 
+// SavingsAccount class
+// This class is used to create a savings account object with a customer, balance, and interest rate
+// It also contains methods to deposit, withdraw, and display the balance
 public class SavingsAccount extends Account {
     private double interestRate;
 

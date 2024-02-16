@@ -1,5 +1,8 @@
 package modules;
 
+// Customer class
+// This class is used to create a customer object with a customer ID, name, and address
+// It also contains methods to get and set the customer's information
 public class Customer {
     private String customerId;
     private String name;
@@ -12,6 +15,7 @@ public class Customer {
     }
 
     // Getters
+
     public String getCustomerId() {
         return customerId;
     }
@@ -25,6 +29,7 @@ public class Customer {
     }
 
     // Setters
+
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }

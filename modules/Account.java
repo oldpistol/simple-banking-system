@@ -3,6 +3,9 @@ package modules;
 import exceptions.IllegalArgumentException;
 import exceptions.InsufficientFundsException;
 
+// Account class
+// This class is used to create an account object with a customer and balance
+// It also contains methods to deposit, withdraw, and display the balance
 public class Account {
     private String accountId;
     private Customer customer;
